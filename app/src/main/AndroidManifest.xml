@@ -24,6 +24,7 @@
         <activity android:name=".Main_Page"> </activity>
         <activity android:name=".ForgotPassword_Page"> </activity>
         <activity android:name=".Register_Page"> </activity>
+        <activity android:name=".Edit_Page"> </activity>
 
     </application>
 
