@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginPage"
-    android:background="@drawable/login_page_background"> <!-- 替换为你的背景图片 -->
+    android:background="@drawable/test"> <!-- 替换为你的背景图片 -->
 
     <!-- 白色方框 -->
     <LinearLayout
