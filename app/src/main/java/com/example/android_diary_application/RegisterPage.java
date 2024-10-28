@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Register_Page extends AppCompatActivity {
+public class RegisterPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class Register_Page extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Register_Page.this, Login_Page.class);
+                Intent intent = new Intent(RegisterPage.this, LoginPage.class);
                 startActivity(intent);
             }
         });
@@ -29,7 +29,7 @@ public class Register_Page extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Register_Page.this, Login_Page.class);
+                Intent intent = new Intent(RegisterPage.this, LoginPage.class);
                 startActivity(intent);
             }
         });
