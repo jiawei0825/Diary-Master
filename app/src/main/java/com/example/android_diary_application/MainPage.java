@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class Main_Page extends AppCompatActivity {
+public class MainPage extends AppCompatActivity {
     private FrameLayout listViewContainer;
     private FrameLayout overlayFrameLayout;
     private RecyclerView recyclerView;

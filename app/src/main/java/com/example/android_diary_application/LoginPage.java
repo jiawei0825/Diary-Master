@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Login_Page extends AppCompatActivity {
+public class LoginPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class Login_Page extends AppCompatActivity {
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login_Page.this, Main_Page.class);
+                Intent intent = new Intent(LoginPage.this, MainPage.class);
                 startActivity(intent);
             }
         });
@@ -29,7 +29,7 @@ public class Login_Page extends AppCompatActivity {
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login_Page.this, Register_Page.class);
+                Intent intent = new Intent(LoginPage.this, RegisterPage.class);
                 startActivity(intent);
             }
         });
@@ -38,7 +38,7 @@ public class Login_Page extends AppCompatActivity {
         ForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login_Page.this, ForgotPassword_Page.class);
+                Intent intent = new Intent(LoginPage.this, ForgotPasswordPage.class);
                 startActivity(intent);
             }
         });
