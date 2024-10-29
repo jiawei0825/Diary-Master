@@ -33,7 +33,7 @@
         android:layout_below="@id/topToolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:src="@drawable/user_page"
+        android:src="@drawable/user_page_background"
         android:scaleType="centerCrop"
         android:background="@drawable/circle_background" />  <!-- 圆形背景 -->
 
