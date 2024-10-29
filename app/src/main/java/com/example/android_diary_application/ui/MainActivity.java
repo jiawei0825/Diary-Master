@@ -15,25 +15,29 @@ import android.widget.RelativeLayout;
 
 import com.example.android_diary_application.adapter.ItemAdapter;
 import com.example.android_diary_application.R;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 
-public class MainPage extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     private FrameLayout listViewContainer;
     private FrameLayout overlayFrameLayout;
     private RecyclerView recyclerView;
     private List<String> recyclerItems;
     private int currentItemCount = 0;
     ItemAdapter itemAdapter;
+    private FirebaseFirestore db;
 
     @SuppressLint("ClickableViewAccessibility")// 用来消除overlayFrameLayout这部分的无障碍适配提示，无功能
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
+
+        db = FirebaseFirestore.getInstance();
 
         listViewContainer = findViewById(R.id.listViewContainer);
         ListView diaryListView = findViewById(R.id.diaryListView);

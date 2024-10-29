@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.LoginPage"> </activity>
-        <activity android:name=".ui.MainPage"> </activity>
+        <activity android:name=".ui.MainActivity"> </activity>
         <activity android:name=".ui.ForgotPasswordPage"> </activity>
         <activity android:name=".ui.RegisterPage"> </activity>
         <activity android:name=".ui.EditPage"> </activity>
