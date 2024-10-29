@@ -32,7 +32,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -40,7 +39,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("androidx.room:room-runtime:2.5.2")// Room 核心库
-    annotationProcessor("androidx.room:room-compiler:2.5.2")
 }
 
