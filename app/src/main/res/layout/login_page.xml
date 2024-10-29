@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginPage"
+    tools:context=".ui.LoginPage"
     android:background="@drawable/login_page_background"> <!-- 替换为你的背景图片 -->
 
     <!-- 白色方框 -->

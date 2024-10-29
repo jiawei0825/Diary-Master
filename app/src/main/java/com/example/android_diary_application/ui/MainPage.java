@@ -1,4 +1,4 @@
-package com.example.android_diary_application;
+package com.example.android_diary_application.ui;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.widget.RelativeLayout;
+
+import com.example.android_diary_application.adapter.ItemAdapter;
+import com.example.android_diary_application.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

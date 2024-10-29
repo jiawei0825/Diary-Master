@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Android_Diary_Application"
         tools:targetApi="31">
         <activity
-            android:name=".StartPage"
+            android:name=".ui.StartPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,11 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginPage"> </activity>
-        <activity android:name=".MainPage"> </activity>
-        <activity android:name=".ForgotPasswordPage"> </activity>
-        <activity android:name=".RegisterPage"> </activity>
-        <activity android:name=".EditPage"> </activity>
+        <activity android:name=".ui.LoginPage"> </activity>
+        <activity android:name=".ui.MainPage"> </activity>
+        <activity android:name=".ui.ForgotPasswordPage"> </activity>
+        <activity android:name=".ui.RegisterPage"> </activity>
+        <activity android:name=".ui.EditPage"> </activity>
 
     </application>
 

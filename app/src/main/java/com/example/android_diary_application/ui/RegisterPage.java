@@ -1,4 +1,4 @@
-package com.example.android_diary_application;
+package com.example.android_diary_application.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.android_diary_application.R;
 
 public class RegisterPage extends AppCompatActivity {
 
