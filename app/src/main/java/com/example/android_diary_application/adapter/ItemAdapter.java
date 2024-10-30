@@ -39,13 +39,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     public void addItem(String item) {
         items.add(item);
-        notifyDataSetChanged();
+        notifyItemInserted(items.size() - 1);  // 使用 notifyItemInserted 提高效率
     }
 
     public void removeItem(int position) {
         if (position >= 0 && position < items.size()) {
             items.remove(position);
-            notifyDataSetChanged();
+            notifyItemRemoved(position);  // 使用 notifyItemRemoved 提高效率
+            notifyItemRangeChanged(position, items.size() - position);  // 更新剩余项目的位置
         }
     }
 

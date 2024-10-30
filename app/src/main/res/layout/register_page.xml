@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="注册"
+            android:text="Register"
             android:textSize="24sp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp" />
@@ -30,7 +30,7 @@
             android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="输入用户名"
+            android:hint="Input your username"
             android:inputType="text"
             android:layout_marginBottom="20dp" />
 
@@ -39,7 +39,7 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="输入邮箱"
+            android:hint="Input your email"
             android:inputType="textEmailAddress"
             android:layout_marginBottom="20dp" />
 
@@ -48,7 +48,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="输入密码"
+            android:hint="Input Password"
             android:inputType="textPassword"
             android:layout_marginBottom="20dp" />
 
@@ -57,7 +57,7 @@
             android:id="@+id/etConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="确认密码"
+            android:hint="Confirm Password"
             android:inputType="textPassword"
             android:layout_marginBottom="20dp" />
 
@@ -66,14 +66,14 @@
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="注册" />
+            android:text="Register" />
 
         <!-- 返回按钮 -->
         <Button
             android:id="@+id/btnBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="返回"
+            android:text="Back"
             android:layout_marginTop="20dp" />
     </LinearLayout>
 </RelativeLayout>

@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="登录"
+            android:text="Login"
             android:textSize="24sp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"/>
@@ -30,7 +30,7 @@
             android:id="@+id/etUsernameOrEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="输入用户名或邮箱"
+            android:hint="Please input your username or email"
             android:inputType="textEmailAddress"
             android:layout_marginBottom="20dp"/>
 
@@ -39,7 +39,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="输入密码"
+            android:hint="Please input your password"
             android:inputType="textPassword"
             android:layout_marginBottom="20dp"/>
 
@@ -48,20 +48,20 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="登录"/>
+            android:text="Login"/>
 
         <!-- 注册按钮 -->
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="注册" />
+            android:text="Register" />
 
         <!-- 忘记密码按钮 -->
         <Button
             android:id="@+id/btnForgotPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="忘记密码" />
+            android:text="Forget Password" />
     </LinearLayout>
 </RelativeLayout>

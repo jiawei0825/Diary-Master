@@ -17,7 +17,7 @@
             android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="个人信息"
+            android:text="Personal Information"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
@@ -27,14 +27,14 @@
             android:id="@+id/textViewUsernameLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="用户名:"
+            android:text="Username:"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textViewUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="加载中..."
+            android:text="loading..."
             android:textSize="16sp"
             android:paddingBottom="8dp" />
 
@@ -42,14 +42,14 @@
             android:id="@+id/textViewAccountLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="账号:"
+            android:text="Account:"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textViewAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="加载中..."
+            android:text="loading..."
             android:textSize="16sp"
             android:paddingBottom="8dp" />
 
@@ -57,14 +57,14 @@
             android:id="@+id/textViewRegistrationDateLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="注册时间:"
+            android:text="Register Time:"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textViewRegistrationDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="加载中..."
+            android:text="Loading..."
             android:textSize="16sp"
             android:paddingBottom="16dp" />
 
@@ -73,7 +73,7 @@
             android:id="@+id/buttonEditInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="修改信息"
+            android:text="Change Information"
             android:onClick="onEditInfoClicked"
             android:layout_marginBottom="8dp" />
 
@@ -81,7 +81,7 @@
             android:id="@+id/buttonLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="退出登录"
+            android:text="Logout"
             android:onClick="onLogoutClicked"
             android:layout_marginBottom="8dp" />
 
@@ -89,7 +89,7 @@
             android:id="@+id/buttonWriteDiary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="写日记"
+            android:text="Write Diary"
             android:onClick="onWriteDiaryClicked"
             android:layout_marginBottom="16dp" />
 
@@ -98,7 +98,7 @@
             android:id="@+id/textViewDiaryHistoryLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="历史日记"
+            android:text="History Diary"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"

@@ -1,149 +1,68 @@
 package com.example.android_diary_application.ui;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ListView;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.widget.RelativeLayout;
-
-import com.example.android_diary_application.adapter.ItemAdapter;
 import com.example.android_diary_application.R;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.example.android_diary_application.adapter.ItemAdapter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-
 public class MainActivity extends AppCompatActivity {
-    private FrameLayout listViewContainer;
-    private FrameLayout overlayFrameLayout;
+
+    private static final int EDIT_REQUEST_CODE = 1; // 请求代码
     private RecyclerView recyclerView;
     private List<String> recyclerItems;
-    private int currentItemCount = 0;
-    ItemAdapter itemAdapter;
-    private FirebaseFirestore db;
+    private ItemAdapter itemAdapter;
 
-    @SuppressLint("ClickableViewAccessibility")// 用来消除overlayFrameLayout这部分的无障碍适配提示，无功能
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
 
-        db = FirebaseFirestore.getInstance();
-
-        listViewContainer = findViewById(R.id.listViewContainer);
-        ListView diaryListView = findViewById(R.id.diaryListView);
-        Button showListViewButton = findViewById(R.id.showListViewButton);
-        overlayFrameLayout = findViewById(R.id.overlayFrameLayout);
-
-        List<String> items = Arrays.asList("Monthly view", "List View", "Collect", "Draft");
-
-        CustomListViewAdapter adapter = new CustomListViewAdapter(this, items);
-        diaryListView.setAdapter(adapter);
-
-        showListViewButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                overlayFrameLayout.setVisibility(View.VISIBLE);
-                showListView();
-            }
-        });
-
-        overlayFrameLayout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (!isPointInsideView(listViewContainer, event.getRawX(), event.getRawY())) {
-                    hideListView();
-                    overlayFrameLayout.setVisibility(View.INVISIBLE);
-                    return true;
-                }
-                return false;
-            }
-        });
-
-
-        recyclerView = findViewById(R.id.recycler_view);
-        Button addButton = findViewById(R.id.add_button);
-        Button removeButton = findViewById(R.id.remove_button);
-
+        // 初始化列表和适配器
         recyclerItems = new ArrayList<>();
-        recyclerItems.add("item1");
         itemAdapter = new ItemAdapter(recyclerItems);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(itemAdapter);
 
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addItem();
-            }
+        // 添加按钮的点击监听器，跳转到 EditPage
+        Button addButton = findViewById(R.id.add_button);
+        addButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, EditPage.class);
+            startActivityForResult(intent, EDIT_REQUEST_CODE);
         });
 
-        List<String> finalItems = recyclerItems;
-        removeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!finalItems.isEmpty()) {
-                    removeItem(finalItems.size() - 1);
-                }
+        // 添加移除按钮的点击监听器，移除最后一个项目
+        Button removeButton = findViewById(R.id.remove_button);
+        removeButton.setOnClickListener(v -> {
+            if (!recyclerItems.isEmpty()) {
+                int lastIndex = recyclerItems.size() - 1;
+                recyclerItems.remove(lastIndex);
+                itemAdapter.notifyItemRemoved(lastIndex);
             }
         });
-
     }
 
-
-
-
-
-
-    private void showListView() {
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-                (int) (getResources().getDisplayMetrics().widthPixels * 0.75f), // 调整列表占比
-                RelativeLayout.LayoutParams.MATCH_PARENT
-        );
-        params.addRule(RelativeLayout.ALIGN_PARENT_START, RelativeLayout.TRUE);
-        params.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
-        listViewContainer.bringToFront();
-        listViewContainer.setLayoutParams(params);
-        listViewContainer.setVisibility(View.VISIBLE);
-
-    }
-
-    private void hideListView() {
-        listViewContainer.setVisibility(View.GONE);
-    }
-
-    private boolean isPointInsideView(View view, float x, float y) {
-        int[] location = new int[2];
-        view.getLocationOnScreen(location);
-        int viewX = location[0];
-        int viewY = location[1];
-
-        if (x > viewX && x < viewX + view.getWidth() &&
-                y > viewY && y < viewY + view.getHeight()) {
-            return true;
-        } else {
-            return false;
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == EDIT_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+            String itemText = data.getStringExtra("item_text");
+            if (itemText != null && !itemText.isEmpty()) {
+                recyclerItems.add(itemText);
+                itemAdapter.notifyItemInserted(recyclerItems.size() - 1);
+                recyclerView.smoothScrollToPosition(recyclerItems.size() - 1);
+            }
         }
     }
-
-    private void addItem() {
-        recyclerItems.add("Item " + (++currentItemCount));
-        itemAdapter.notifyDataSetChanged();
-        recyclerView.smoothScrollToPosition(recyclerItems.size() - 1);
-    }
-
-    private void removeItem(int position) {
-        recyclerItems.remove(position);
-        itemAdapter.notifyDataSetChanged();
-    }
-
 }

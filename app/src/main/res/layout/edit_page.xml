@@ -10,7 +10,7 @@
         android:id="@+id/edit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="编辑"
+        android:text="Edit"
         android:textSize="20sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
@@ -20,7 +20,7 @@
         android:id="@+id/title_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="标题"
+        android:hint="Title"
         android:layout_below="@id/edit_text"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -42,14 +42,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="日期"
+            android:hint="Date"
             android:inputType="date" />
 
         <Button
             android:id="@+id/add_current_date_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="当前日期" />
+            android:text="Current Date" />
     </LinearLayout>
 
     <!-- 标签和输入框的容器 -->
@@ -74,7 +74,7 @@
             android:id="@+id/category_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="输入类别"
+            android:hint="Input Diary Type"
             android:inputType="text"
             android:layout_marginBottom="20dp" />
     </LinearLayout>
@@ -109,13 +109,13 @@
             android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="返回" />
+            android:text="Back" />
 
         <Button
             android:id="@+id/confirm_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="确定"
+            android:text="Confirm"
             android:layout_marginLeft="20dp" />
     </LinearLayout>
 
