@@ -11,7 +11,7 @@ public class FirestoreRepository {
 
     public void addDataToFirestore(DiaryEntry data) {
         // 使用 db 进行 Firestore 操作
-        db.collection("your_collection_name")
+        db.collection("diary_entries")
                 .add(data)
                 .addOnSuccessListener(documentReference -> {
                     // 添加成功的回调
