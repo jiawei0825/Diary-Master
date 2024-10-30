@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         Button showListViewButton = findViewById(R.id.showListViewButton);
         overlayFrameLayout = findViewById(R.id.overlayFrameLayout);
 
-        List<String> items = Arrays.asList("月度视图", "列表视图", "收藏", "草稿");
+        List<String> items = Arrays.asList("Monthly view", "List View", "Collect", "Draft");
 
         CustomListViewAdapter adapter = new CustomListViewAdapter(this, items);
         diaryListView.setAdapter(adapter);

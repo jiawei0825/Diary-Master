@@ -19,7 +19,7 @@
             android:id="@+id/showListViewButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="显示列表"
+            android:text="Display List"
             android:layout_centerHorizontal="true" />
 
     </androidx.appcompat.widget.Toolbar>
