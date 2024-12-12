@@ -31,7 +31,7 @@ public class HistoryFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerViewHistory);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // 加载日记数据
+        // Load diary data
         List<String> diaryEntries = loadDiaryEntries();
         itemAdapter = new ItemAdapter(diaryEntries);
         recyclerView.setAdapter(itemAdapter);
@@ -45,7 +45,7 @@ public class HistoryFragment extends Fragment {
 
         List<String> diaryList = new ArrayList<>();
         if (!savedDiaries.isEmpty()) {
-            String[] diaries = savedDiaries.split("\\|\\|"); // 根据 "||" 分割日记
+            String[] diaries = savedDiaries.split("\\|\\|"); // According to "||" to split diary
             for (String diary : diaries) {
                 diaryList.add(diary);
             }

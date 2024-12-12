@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <!-- 文本“编辑” -->
+    <!-- Edit text -->
     <TextView
         android:id="@+id/edit_text"
         android:layout_width="wrap_content"
@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
 
-    <!-- 输入标题的输入框 -->
+    <!-- Enter the entry field for the title -->
     <EditText
         android:id="@+id/title_input"
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp" />
 
-    <!-- 输入日期的输入框 -->
+    <!-- Enter the entry field for the date -->
     <LinearLayout
         android:id="@+id/date"
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
             android:text="Current Date" />
     </LinearLayout>
 
-    <!-- 标签和输入框的容器 -->
+    <!-- Containers for labels and input boxes -->
     <LinearLayout
         android:id="@+id/category"
         android:layout_width="match_parent"
@@ -62,13 +62,13 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
 
-        <!-- RecyclerView 用于显示标签 -->
+        <!-- RecyclerView is used to display labels -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/category_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- 输入新标签的输入框 -->
+        <!-- Enter the entry field for the new label -->
         <EditText
             android:id="@+id/category_input"
             android:layout_width="match_parent"
@@ -78,7 +78,7 @@
             android:layout_marginBottom="20dp" />
     </LinearLayout>
 
-    <!-- 输入正文的输入框 -->
+    <!-- Enter the entry field for the text -->
     <Button
         android:layout_below="@id/category"
         android:id="@+id/buttonColorPicker"
@@ -94,7 +94,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="输入你的日记..."
+        android:hint="Input your diary..."
         android:gravity="top"
         android:inputType="textMultiLine"
         android:scrollbars="vertical"
@@ -107,7 +107,7 @@
         android:id="@+id/buttonSaveDiary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="保存"
+        android:text="Save"
         android:layout_below="@id/editTextDiaryContent"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="0dp"

@@ -20,12 +20,12 @@
             android:id="@+id/showListViewButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="显示列表"
+            android:text="Display list"
             android:layout_centerHorizontal="true" />
 
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- 用户头像 (圆形区域) -->
+    <!-- User profile picture (circular area) -->
     <ImageView
         android:id="@+id/user_avatar"
         android:layout_width="100dp"
@@ -35,9 +35,9 @@
         android:layout_marginTop="32dp"
         android:src="@drawable/user_page_background"
         android:scaleType="centerCrop"
-        android:background="@drawable/circle_background" />  <!-- 圆形背景 -->
+        android:background="@drawable/circle_background" />  <!-- Circular background -->
 
-    <!-- 用户名 -->
+    <!-- Username -->
     <TextView
         android:id="@+id/user_name"
         android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
         android:textColor="@android:color/black"
         android:gravity="center" />
 
-    <!-- 邮箱 -->
+    <!-- Email -->
     <TextView
         android:id="@+id/user_email"
         android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
         android:textColor="@android:color/darker_gray"
         android:gravity="center" />
 
-    <!-- 日记数量 -->
+    <!-- Diary quantity -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="日记数量："
+            android:text="Diary quantity："
             android:textSize="16sp"
             android:textColor="@android:color/black" />
 
@@ -92,7 +92,7 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- 连续记录天数 -->
+    <!-- Consecutive recording days -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="连续记录天数："
+            android:text="Consecutive recording days："
             android:textSize="16sp"
             android:textColor="@android:color/black" />
 

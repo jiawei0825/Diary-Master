@@ -19,10 +19,10 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        // 默认显示日程页面
+        // The calendar page is displayed by default
         loadFragment(new ScheduleFragment());
 
-        // 设置按钮点击事件
+        // Set button click event
         Button btnSchedule = findViewById(R.id.btnSchedule);
         Button btnHistory = findViewById(R.id.btnHistory);
         Button btnWrite = findViewById(R.id.btnWrite);

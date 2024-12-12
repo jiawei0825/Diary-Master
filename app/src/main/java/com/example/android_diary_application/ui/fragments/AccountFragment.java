@@ -57,20 +57,20 @@ public class AccountFragment extends Fragment {
 
         sharedPreferences = requireContext().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
 
-        // 初始化状态
+        // Initialize state
         loadUserInfo();
         toggleEditMode(false);
 
-        // 修改按钮
+        // Change button
         buttonEdit.setOnClickListener(v -> toggleEditMode(true));
 
-        // 保存按钮
+        // Save button
         buttonSave.setOnClickListener(v -> saveUserInfo());
 
-        // 生日选择器
+        // Birthday selector
         editTextBirthday.setOnClickListener(v -> showDatePickerDialog());
 
-        // 登出按钮
+        // Button of log out
         buttonLogout.setOnClickListener(v -> logout());
 
         return view;
@@ -83,11 +83,11 @@ public class AccountFragment extends Fragment {
         String gender = sharedPreferences.getString("gender", "未设置性别");
         String birthday = sharedPreferences.getString("birthday", "未设置生日");
 
-        textViewUsername.setText("用户名: " + username);
-        textViewEmail.setText("邮箱: " + email);
-        textViewPassword.setText("密码: " + password);
-        textViewGender.setText("性别: " + gender);
-        textViewBirthday.setText("生日: " + birthday);
+        textViewUsername.setText("Username: " + username);
+        textViewEmail.setText("Email: " + email);
+        textViewPassword.setText("Password: " + password);
+        textViewGender.setText("Gender: " + gender);
+        textViewBirthday.setText("Birthday: " + birthday);
 
         editTextUsername.setText(username);
         editTextEmail.setText(email);
@@ -104,7 +104,7 @@ public class AccountFragment extends Fragment {
         String birthday = editTextBirthday.getText().toString().trim();
 
         if (TextUtils.isEmpty(username) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-            Toast.makeText(getContext(), "用户名、邮箱和密码不能为空", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Username, email and password can not be bull", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -116,7 +116,7 @@ public class AccountFragment extends Fragment {
         editor.putString("birthday", birthday);
         editor.apply();
 
-        Toast.makeText(getContext(), "信息已保存", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Information saved", Toast.LENGTH_SHORT).show();
 
         loadUserInfo();
         toggleEditMode(false);
@@ -124,14 +124,14 @@ public class AccountFragment extends Fragment {
 
     private void toggleEditMode(boolean isEditMode) {
         if (isEditMode) {
-            // 显示 EditText
+            // Show EditText
             editTextUsername.setVisibility(View.VISIBLE);
             editTextEmail.setVisibility(View.VISIBLE);
             editTextPassword.setVisibility(View.VISIBLE);
             editTextGender.setVisibility(View.VISIBLE);
             editTextBirthday.setVisibility(View.VISIBLE);
 
-            // 隐藏 TextView
+            // Hide TextView
             textViewUsername.setVisibility(View.GONE);
             textViewEmail.setVisibility(View.GONE);
             textViewPassword.setVisibility(View.GONE);
@@ -141,14 +141,14 @@ public class AccountFragment extends Fragment {
             buttonSave.setVisibility(View.VISIBLE);
             buttonEdit.setVisibility(View.GONE);
         } else {
-            // 显示 TextView
+            // Show TextView
             textViewUsername.setVisibility(View.VISIBLE);
             textViewEmail.setVisibility(View.VISIBLE);
             textViewPassword.setVisibility(View.VISIBLE);
             textViewGender.setVisibility(View.VISIBLE);
             textViewBirthday.setVisibility(View.VISIBLE);
 
-            // 隐藏 EditText
+            // Hide EditText
             editTextUsername.setVisibility(View.GONE);
             editTextEmail.setVisibility(View.GONE);
             editTextPassword.setVisibility(View.GONE);

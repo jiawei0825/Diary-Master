@@ -39,11 +39,13 @@ public class ChatActivity extends AppCompatActivity {
     List<Message> messageList;
     MessageAdapter messageadapter;
 
+    public static final String API_KEY = "ipeK4SYlCpNen8xc5iHSOL4m";
+    public static final String SECRET_KEY = "gkmMdNndpwlTEKnTgsEoQo2irhLstu4N";
 
     private static final OkHttpClient HTTP_CLIENT = new OkHttpClient.Builder()
-            .connectTimeout(1000, TimeUnit.SECONDS) // 连接超时时间
-            .readTimeout(3000, TimeUnit.SECONDS)    // 读取超时时间
-            .writeTimeout(3000, TimeUnit.SECONDS)   // 写入超时时间
+            .connectTimeout(1000, TimeUnit.SECONDS) // Connect time out
+            .readTimeout(3000, TimeUnit.SECONDS)    // Read time out
+            .writeTimeout(3000, TimeUnit.SECONDS)   // Write time out
             .build();
 
     //static final OkHttpClient HTTP_CLIENT = new OkHttpClient().newBuilder().build();
@@ -112,7 +114,7 @@ public class ChatActivity extends AppCompatActivity {
         addToChat(response, Message.SENT_BY_BOT);
     }
 
-    // 使用 CompletableFuture 来异步获取 Access Token
+    // Use CompletableFuture to acquire Access Token asynchronously
     private CompletableFuture<String> getAccessTokenAsync() {
         return CompletableFuture.supplyAsync(() -> {
             try (Response response = HTTP_CLIENT.newCall(new Request.Builder()
@@ -132,12 +134,12 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     void callWXAPI(String question) {
-        // 先显示正在输入...
+        // Show typing...
         addToChat("Typing...", Message.SENT_BY_BOT);
 
-        // 异步获取 Access Token
+        // Require Access Token asynchronously
         getAccessTokenAsync().thenAccept(accessToken -> {
-            // 使用获取到的 Access Token 调用 WX API
+            // Use fetch Access Token to call WX API
             MediaType mediaType = MediaType.parse("application/json");
             RequestBody body = RequestBody.create(mediaType, question);
             Request request = new Request.Builder()
@@ -156,22 +158,22 @@ public class ChatActivity extends AppCompatActivity {
                 public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
 
                     String responseBody = response.body().string();
-                    // 打印完整响应以便调试
+                    // Print the full response for debugging
 
                     if (response.isSuccessful()) {
                         try {
                             JSONObject jsonObject = new JSONObject(responseBody);
-                            // 检查是否存在"result"字段
+                            // Check if "result" exists
                             if (jsonObject.has("result")) {
                                 //JSONArray jsonArray = jsonObject.getJSONArray("result");
                                 String result = jsonObject.getString("result");
                                 addResponse(result.trim());
                             } else {
-                                // 处理缺少"result"字段的情况
+                                // Handle missing "result"
                                 addResponse("Response does not contain 'result' field.");
                             }
                         } catch (JSONException e) {
-                            // 捕获JSON解析异常并打印错误信息
+                            // Catch JSON parsing exceptions and print error messages
                             System.err.println("JSON parsing error: " + e.getMessage());
                             addResponse("Failed to parse response: " + e.getMessage());
                         }
@@ -181,7 +183,7 @@ public class ChatActivity extends AppCompatActivity {
                 }
             });
         }).exceptionally(ex -> {
-            // 处理获取 Access Token 失败的情况
+            // Handle the failure of acquiring Access Token
             addResponse("Failed to get access token: " + ex.getMessage());
             return null;
         });

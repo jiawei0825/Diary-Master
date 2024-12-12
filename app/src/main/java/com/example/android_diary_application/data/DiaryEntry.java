@@ -1,10 +1,10 @@
 package com.example.android_diary_application.data;
 
 public class DiaryEntry {
-    private String id; // 日记条目的唯一标识
-    private String title; // 日记标题
-    private String content; // 日记内容
-    private String timestamp; // 时间戳
+    private String id; // Unique identification of diary entries
+    private String title; // Title of diary
+    private String content; // Content of diary
+    private String timestamp; // Time stamp
 
 
     public DiaryEntry() {}
@@ -16,7 +16,7 @@ public class DiaryEntry {
         this.timestamp = timestamp;
     }
 
-    // Getter 和 Setter 方法
+    // Getter and Setter method
     public String getId() {
         return id;
     }

@@ -18,7 +18,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int EDIT_REQUEST_CODE = 1; // 请求代码
+    private static final int EDIT_REQUEST_CODE = 1; // Request code
     private RecyclerView recyclerView;
     private List<String> recyclerItems;
     private ItemAdapter itemAdapter;
@@ -28,21 +28,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
 
-        // 初始化列表和适配器
+        // Initialize the list and adapter
         recyclerItems = new ArrayList<>();
         itemAdapter = new ItemAdapter(recyclerItems);
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(itemAdapter);
 
-        // 添加按钮的点击监听器，跳转到 EditPage
+        // Add button click listener, jump to EditPage
         Button addButton = findViewById(R.id.add_button);
         addButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, EditPage.class);
             startActivityForResult(intent, EDIT_REQUEST_CODE);
         });
 
-        // 添加移除按钮的点击监听器，移除最后一个项目
+        // Add a click listener for the Remove button to remove the last item
         Button removeButton = findViewById(R.id.remove_button);
         removeButton.setOnClickListener(v -> {
             if (!recyclerItems.isEmpty()) {

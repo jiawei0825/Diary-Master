@@ -27,10 +27,10 @@ public class CustomListViewAdapter extends ArrayAdapter<String> {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(R.layout.mainlist_item, parent, false);
 
-        // 获取自定义布局中的TextView
+        // Obtain a TextView from a custom layout
         TextView textView = convertView.findViewById(R.id.function);
 
-        // 从数据源中获取数据并设置到TextView上
+        // Get data from the data source and set it to a TextView
         String item = getItem(position);
         textView.setText(item);
 

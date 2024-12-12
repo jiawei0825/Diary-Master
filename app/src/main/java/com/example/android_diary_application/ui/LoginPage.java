@@ -31,31 +31,31 @@ public class LoginPage extends AppCompatActivity {
             String password = etPassword.getText().toString().trim();
 
             if (TextUtils.isEmpty(usernameOrEmail) || TextUtils.isEmpty(password)) {
-                Toast.makeText(LoginPage.this, "请输入用户名/邮箱和密码", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginPage.this, "Please enter username/email and password", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // 从 SharedPreferences 获取注册的用户名、邮箱和密码
+            // Get the registered user name, email address, and password from SharedPreferences
             SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
             String registeredUsername = sharedPreferences.getString("username", null);
             String registeredEmail = sharedPreferences.getString("email", null);
             String registeredPassword = sharedPreferences.getString("password", null);
 
-            // 检查是否有已注册用户
+            // Check whether there are registered users
             if (TextUtils.isEmpty(registeredUsername) || TextUtils.isEmpty(registeredPassword)) {
-                Toast.makeText(LoginPage.this, "该用户未注册，请先注册", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginPage.this, "The user is not registered, please register first", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // 验证用户名或邮箱和密码
+            // Verify user name or email and password
             if ((usernameOrEmail.equals(registeredUsername) || usernameOrEmail.equals(registeredEmail))
                     && password.equals(registeredPassword)) {
-                Toast.makeText(LoginPage.this, "登录成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginPage.this, "Login successful", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(LoginPage.this, HomePage.class);
                 startActivity(intent);
                 finish();
             } else {
-                Toast.makeText(LoginPage.this, "用户名/邮箱或密码错误", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginPage.this, "Username/email or password is incorrect", Toast.LENGTH_SHORT).show();
             }
         });
 

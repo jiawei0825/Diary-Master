@@ -33,7 +33,7 @@ public class WriteDiaryFragment extends Fragment {
     private Button buttonColorPicker;
     private Button chat;
     private SharedPreferences sharedPreferences;
-    private HomePage homePage; // 添加 HomePage 成员变量
+    private HomePage homePage; // Add HomePage member variable
     private Integer selectedColor = null;
 
     @Nullable
@@ -66,14 +66,14 @@ public class WriteDiaryFragment extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         if (context instanceof HomePage) {
-            homePage = (HomePage) context; // 初始化 HomePage
+            homePage = (HomePage) context; // Initialize HomePage
         }
     }
 
     private void saveDiaryEntry() {
         String content = editTextDiaryContent.getText().toString().trim();
         if (content.isEmpty()) {
-            Toast.makeText(getContext(), "日记内容不能为空！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "The content of diary can not be null！", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -83,12 +83,12 @@ public class WriteDiaryFragment extends Fragment {
         editor.putString("diaryEntries", updatedDiaries);
         editor.apply();
 
-        // 通知 HomePage 刷新 HistoryFragment
+        // Notify HomePage to refresh HistoryFragment
         if (homePage != null) {
             homePage.refreshHistoryFragment();
         }
 
-        Toast.makeText(getContext(), "日记已保存！", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Diary saved！", Toast.LENGTH_SHORT).show();
         editTextDiaryContent.setText("");
     }
 
@@ -103,19 +103,19 @@ public class WriteDiaryFragment extends Fragment {
         gridView.setAdapter(adapter);
 
         gridView.setOnItemClickListener((parent, view, position, id) -> {
-            selectedColor = adapter.getColor(position); // 保存选中的颜色
+            selectedColor = adapter.getColor(position); // Save the selected color
             builder.create().dismiss();
             applySelectedColorToText();
         });
 
-        // 可以在这里添加代码来检测 EditText 中的文本选择，但更简单的做法是在 EditText 失去焦点时处理
-        // 因为对话框会暂时使 EditText 失去焦点，所以最好是在对话框关闭后的某个其他时刻处理
+        // We can add code here to detect text selection in EditText, but it's easier to handle it when EditText loses focus.
+        // Because the dialog takes the EditText out of focus temporarily, it's best to deal with it at some other time after the dialog is closed.
 
         AlertDialog dialog = builder.create();
         dialog.show();
     }
 
-    // 添加一个方法来处理 EditText 文本颜色的改变
+    // Add a method to handle EditText text color changes
     private void applySelectedColorToText() {
         if (selectedColor != null) {
             int startSelection = editTextDiaryContent.getSelectionStart();
@@ -126,7 +126,7 @@ public class WriteDiaryFragment extends Fragment {
                 spannable.setSpan(new ForegroundColorSpan(selectedColor), startSelection, endSelection, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 editTextDiaryContent.setText(spannable);
             }
-            selectedColor = null; // 重置选中的颜色
+            selectedColor = null; // Reset selected color
         }
     }
 }

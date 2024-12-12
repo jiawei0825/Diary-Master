@@ -37,23 +37,23 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return items.size();
     }
 
-    // 新增方法：更新数据列表并通知 RecyclerView
+    // Add a method, update the data list, and notify RecyclerView
     public void updateData(List<String> newItems) {
-        items.clear();  // 清空原有数据
-        items.addAll(newItems);  // 添加新数据
-        notifyDataSetChanged();  // 通知 RecyclerView 更新
+        items.clear();  // Clear old data
+        items.addAll(newItems);  // Add new data
+        notifyDataSetChanged();  // Update RecyclerView
     }
 
     public void addItem(String item) {
         items.add(item);
-        notifyItemInserted(items.size() - 1);  // 使用 notifyItemInserted 提高效率
+        notifyItemInserted(items.size() - 1);  // use notifyItemInserted for efficiency
     }
 
     public void removeItem(int position) {
         if (position >= 0 && position < items.size()) {
             items.remove(position);
-            notifyItemRemoved(position);  // 使用 notifyItemRemoved 提高效率
-            notifyItemRangeChanged(position, items.size() - position);  // 更新剩余项目的位置
+            notifyItemRemoved(position);  // Use notifyItemRemoved for efficiency
+            notifyItemRangeChanged(position, items.size() - position);  // Update the location of the remaining items
         }
     }
 

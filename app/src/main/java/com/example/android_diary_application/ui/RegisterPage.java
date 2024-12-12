@@ -22,7 +22,7 @@ public class RegisterPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_page);
 
-        // 获取输入框和按钮的引用
+        // Gets references to input fields and buttons
         EditText etUsername = findViewById(R.id.etUsername);
         EditText etEmail = findViewById(R.id.etEmail);
         EditText etPassword = findViewById(R.id.etPassword);
@@ -30,27 +30,27 @@ public class RegisterPage extends AppCompatActivity {
         Button btnRegister = findViewById(R.id.btnRegister);
         Button btnBack = findViewById(R.id.btnBack);
 
-        // 返回按钮点击事件
+        // Return button click event
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RegisterPage.this, LoginPage.class);
                 startActivity(intent);
-                finish(); // 结束当前活动
+                finish(); // End current activity
             }
         });
 
-        // 注册按钮点击事件
+        // Register button click event
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 获取输入框内容
+                // Register button click event
                 String username = etUsername.getText().toString().trim();
                 String email = etEmail.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
                 String confirmPassword = etConfirmPassword.getText().toString().trim();
 
-                // 数据验证
+                // Verify data
                 if (TextUtils.isEmpty(username) || username.length() < 4) {
                     Toast.makeText(RegisterPage.this, "The user name must be at least 4 characters long", Toast.LENGTH_SHORT).show();
                     return;
@@ -78,20 +78,20 @@ public class RegisterPage extends AppCompatActivity {
                 }
 
 
-                // 保存用户信息到 SharedPreferences
+                // Save user information to SharedPreferences
                 SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
                 String registeredEmail = sharedPreferences.getString("email", null);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("username", username);
-                editor.putString("email", email); // 保存邮箱
+                editor.putString("email", email); // Save email
                 editor.putString("password", password);
                 editor.apply();
 
-                // 显示注册成功提示并跳转到登录页面
+                // The registration success message is displayed and the login page is displayed
                 Toast.makeText(RegisterPage.this, "Registered successfully ^_^", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(RegisterPage.this, LoginPage.class);
                 startActivity(intent);
-                finish(); // 结束当前活动
+                finish(); // End current activity
             }
         });
     }
