@@ -1,6 +1,8 @@
 package com.example.android_diary_application.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -12,57 +14,67 @@ import com.example.android_diary_application.R;
 
 import java.util.List;
 
-public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
-    private List<String> items;
+    private final List<String> diaryList;
 
-    public ItemAdapter(List<String> items) {
-        this.items = items;
+    public ItemAdapter(List<String> diaryList) {
+        this.diaryList = diaryList;
     }
 
     @NonNull
     @Override
-    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, parent, false);
-        return new ItemViewHolder(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // 加载日记项布局
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_diary, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
-        holder.textView.setText(items.get(position));
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        String diaryEntry = diaryList.get(position);
+
+        // 示例解析：第一行为标题，第二行为日期，第三行为内容
+        String[] parts = diaryEntry.split("\n", 3);
+        String title = parts[0];
+        String date = parts.length > 1 ? parts[1] : "";
+        String content = parts.length > 2 ? parts[2] : "";
+
+        holder.tvDiaryDate.setText(date);
+        holder.tvDiaryContent.setText(title); // 显示标题作为内容摘要
+
+        // 设置点击事件
+        holder.itemView.setOnClickListener(view -> {
+            // 启动 DiaryDetailActivity 并传递数据
+            Intent intent = new Intent(view.getContext(), com.example.android_diary_application.ui.DiaryDetailActivity.class);
+            intent.putExtra("title", title);
+            intent.putExtra("date", date);
+            intent.putExtra("content", content);
+            view.getContext().startActivity(intent);
+        });
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return diaryList.size();
     }
 
-    // Add a method, update the data list, and notify RecyclerView
-    public void updateData(List<String> newItems) {
-        items.clear();  // Clear old data
-        items.addAll(newItems);  // Add new data
-        notifyDataSetChanged();  // Update RecyclerView
+    public void updateData(List<String> newDiaryList) {
+        diaryList.clear();
+        diaryList.addAll(newDiaryList);
+        notifyDataSetChanged();
     }
 
-    public void addItem(String item) {
-        items.add(item);
-        notifyItemInserted(items.size() - 1);  // use notifyItemInserted for efficiency
-    }
+    // ViewHolder 内部类
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView tvDiaryDate;
+        TextView tvDiaryContent;
 
-    public void removeItem(int position) {
-        if (position >= 0 && position < items.size()) {
-            items.remove(position);
-            notifyItemRemoved(position);  // Use notifyItemRemoved for efficiency
-            notifyItemRangeChanged(position, items.size() - position);  // Update the location of the remaining items
-        }
-    }
-
-    public static class ItemViewHolder extends RecyclerView.ViewHolder {
-        TextView textView;
-
-        public ItemViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.item_text_view);
+            tvDiaryDate = itemView.findViewById(R.id.tvDiaryDate);
+            tvDiaryContent = itemView.findViewById(R.id.tvDiaryContent);
         }
     }
 }

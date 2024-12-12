@@ -48,6 +48,5 @@ dependencies {
     implementation ("androidx.recyclerview:recyclerview:1.2.0")
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
     implementation("org.json:json:20210307")
-
 }
 
