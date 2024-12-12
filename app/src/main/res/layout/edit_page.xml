@@ -80,11 +80,18 @@
     </LinearLayout>
 
     <!-- 输入正文的输入框 -->
+    <Button
+        android:layout_below="@id/category"
+        android:id="@+id/buttonColorPicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Color" />
+
     <EditText
         android:id="@+id/content_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/category"
+        android:layout_below="@id/buttonColorPicker"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"

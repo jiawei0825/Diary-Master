@@ -4,14 +4,104 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
+    <!-- 文本“编辑” -->
+    <TextView
+        android:id="@+id/edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <!-- 输入标题的输入框 -->
+    <EditText
+        android:id="@+id/title_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Title"
+        android:layout_below="@id/edit_text"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+
+    <!-- 输入日期的输入框 -->
+    <LinearLayout
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/title_input"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <EditText
+            android:id="@+id/date_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Date"
+            android:inputType="date" />
+
+        <Button
+            android:id="@+id/add_current_date_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Date" />
+    </LinearLayout>
+
+    <!-- 标签和输入框的容器 -->
+    <LinearLayout
+        android:id="@+id/category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/date"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <!-- RecyclerView 用于显示标签 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/category_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- 输入新标签的输入框 -->
+        <EditText
+            android:id="@+id/category_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Input Diary Type"
+            android:inputType="text"
+            android:layout_marginBottom="20dp" />
+    </LinearLayout>
+
+    <!-- 输入正文的输入框 -->
+    <Button
+        android:layout_below="@id/category"
+        android:id="@+id/buttonColorPicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Color" />
+
     <EditText
         android:id="@+id/editTextDiaryContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/buttonColorPicker"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:hint="输入你的日记..."
         android:gravity="top"
         android:inputType="textMultiLine"
-        android:minHeight="200dp" />
+        android:scrollbars="vertical"
+        android:fadeScrollbars="false"
+        android:minHeight="100dp"
+        android:padding="10dp" />
+
 
     <Button
         android:id="@+id/buttonSaveDiary"
@@ -20,5 +110,6 @@
         android:text="保存"
         android:layout_below="@id/editTextDiaryContent"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="80dp"/>
 </RelativeLayout>
