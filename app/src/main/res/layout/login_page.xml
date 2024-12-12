@@ -30,7 +30,7 @@
             android:id="@+id/etUsernameOrEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Please input your username or email"
+            android:hint="Username or Email"
             android:inputType="textEmailAddress"
             android:layout_marginBottom="20dp"/>
 
@@ -39,7 +39,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Please input your password"
+            android:hint="Password"
             android:inputType="textPassword"
             android:layout_marginBottom="20dp"/>
 
