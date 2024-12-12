@@ -25,7 +25,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // 加载日记项布局
+        // Load the journal entry layout
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_diary, parent, false);
         return new ViewHolder(view);
@@ -35,18 +35,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String diaryEntry = diaryList.get(position);
 
-        // 示例解析：第一行为标题，第二行为日期，第三行为内容
+        // Example parsing: The first line is the title, the second line is the date, and the third line is the content.
         String[] parts = diaryEntry.split("\n", 3);
         String title = parts[0];
         String date = parts.length > 1 ? parts[1] : "";
         String content = parts.length > 2 ? parts[2] : "";
 
         holder.tvDiaryDate.setText(date);
-        holder.tvDiaryContent.setText(title); // 显示标题作为内容摘要
+        holder.tvDiaryContent.setText(title); // Display the tile as a summary of the content
 
-        // 设置点击事件
+        // Set click event
         holder.itemView.setOnClickListener(view -> {
-            // 启动 DiaryDetailActivity 并传递数据
+            // Launch DiaryDetailActivity and pass data
             Intent intent = new Intent(view.getContext(), com.example.android_diary_application.ui.DiaryDetailActivity.class);
             intent.putExtra("title", title);
             intent.putExtra("date", date);
@@ -66,7 +66,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         notifyDataSetChanged();
     }
 
-    // ViewHolder 内部类
+    // ViewHolder inner class
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvDiaryDate;
         TextView tvDiaryContent;

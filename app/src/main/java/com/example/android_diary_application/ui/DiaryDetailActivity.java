@@ -14,17 +14,17 @@ public class DiaryDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_detail);
 
-        // 获取传递的数据
+        // Get the passed data
         String title = getIntent().getStringExtra("title");
         String date = getIntent().getStringExtra("date");
         String content = getIntent().getStringExtra("content");
 
-        // 绑定视图
+        // Bound view
         TextView tvTitle = findViewById(R.id.tvTitle);
         TextView tvDate = findViewById(R.id.tvDate);
         TextView tvContent = findViewById(R.id.tvContent);
 
-        // 设置数据
+        // Set data
         tvTitle.setText(title);
         tvDate.setText(date);
         tvContent.setText(content);
