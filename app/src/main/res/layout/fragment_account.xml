@@ -48,7 +48,7 @@
             android:id="@+id/editTextUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="用户名"
+            android:hint="Username"
             android:visibility="gone"
             android:textSize="16sp" />
 
@@ -56,7 +56,7 @@
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="邮箱"
+            android:hint="Email"
             android:inputType="textEmailAddress"
             android:visibility="gone"
             android:textSize="16sp"
@@ -66,7 +66,7 @@
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="密码"
+            android:hint="Password"
             android:inputType="textPassword"
             android:visibility="gone"
             android:textSize="16sp"
@@ -76,7 +76,7 @@
             android:id="@+id/editTextGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="性别"
+            android:hint="Gender"
             android:visibility="gone"
             android:textSize="16sp"
             android:layout_marginTop="8dp" />
@@ -85,7 +85,7 @@
             android:id="@+id/editTextBirthday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="生日"
+            android:hint="Birthday"
             android:focusable="false"
             android:clickable="true"
             android:visibility="gone"
@@ -97,14 +97,14 @@
             android:id="@+id/buttonEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="修改信息"
+            android:text="Change information"
             android:layout_marginTop="16dp" />
 
         <Button
             android:id="@+id/buttonSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="保存信息"
+            android:text="Save information"
             android:visibility="gone"
             android:layout_marginTop="16dp" />
 
@@ -112,7 +112,7 @@
             android:id="@+id/buttonLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="退出登录"
+            android:text="Log out"
             android:layout_marginTop="8dp" />
     </LinearLayout>
 </ScrollView>

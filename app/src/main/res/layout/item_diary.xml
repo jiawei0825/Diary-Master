@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- 日期 -->
+        <!-- Date -->
         <TextView
             android:id="@+id/tvDiaryDate"
             android:layout_width="wrap_content"
@@ -19,7 +19,7 @@
             android:textSize="14sp"
             android:layout_alignParentTop="true" />
 
-        <!-- 日记内容 -->
+        <!-- Diary content -->
         <TextView
             android:id="@+id/tvDiaryContent"
             android:layout_width="wrap_content"
@@ -28,7 +28,7 @@
             android:layout_marginTop="8dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="这是日记内容预览，显示前两行文字..."
+            android:text="This is a diary content preview, showing the first two lines of text...."
             android:textColor="@color/text_primary"
             android:textSize="16sp" />
 
