@@ -2,6 +2,7 @@ package com.example.android_diary_application.ui.fragments;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -20,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.android_diary_application.ui.Chat.ChatActivity;
 import com.example.android_diary_application.R;
 import com.example.android_diary_application.adapter.ColorAdapter;
 import com.example.android_diary_application.ui.HomePage;
@@ -29,6 +31,7 @@ public class WriteDiaryFragment extends Fragment {
     private EditText editTextDiaryContent;
     private Button buttonSaveDiary;
     private Button buttonColorPicker;
+    private Button chat;
     private SharedPreferences sharedPreferences;
     private HomePage homePage; // 添加 HomePage 成员变量
     private Integer selectedColor = null;
@@ -41,6 +44,7 @@ public class WriteDiaryFragment extends Fragment {
         editTextDiaryContent = view.findViewById(R.id.editTextDiaryContent);
         buttonSaveDiary = view.findViewById(R.id.buttonSaveDiary);
         buttonColorPicker = view.findViewById(R.id.buttonColorPicker);
+        chat = view.findViewById(R.id.chat);
 
         sharedPreferences = requireContext().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
 
@@ -48,6 +52,11 @@ public class WriteDiaryFragment extends Fragment {
 
         buttonColorPicker.setOnClickListener(v -> {
             showColorPickerDialog();
+        });
+
+        chat.setOnClickListener(v -> {
+            Intent intent = new Intent(requireContext(), ChatActivity.class);
+            startActivity(intent);
         });
 
         return view;
