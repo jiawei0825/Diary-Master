@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.EditPage">
 
-    <!-- 文本“编辑” -->
+    <!-- Edit text -->
     <TextView
         android:id="@+id/edit_text"
         android:layout_width="wrap_content"
@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
 
-    <!-- 输入标题的输入框 -->
+    <!-- Enter the entry field for the title -->
     <EditText
         android:id="@+id/title_input"
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp" />
 
-    <!-- 输入日期的输入框 -->
+    <!-- Enter the entry field for the date -->
     <LinearLayout
         android:id="@+id/date"
         android:layout_width="match_parent"
@@ -52,7 +52,7 @@
             android:text="Current Date" />
     </LinearLayout>
 
-    <!-- 标签和输入框的容器 -->
+    <!-- Containers for labels and input boxes -->
     <LinearLayout
         android:id="@+id/category"
         android:layout_width="match_parent"
@@ -63,13 +63,13 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
 
-        <!-- RecyclerView 用于显示标签 -->
+        <!-- RecyclerView is used to display labels -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/category_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- 输入新标签的输入框 -->
+        <!-- Enter the entry field for the new label -->
         <EditText
             android:id="@+id/category_input"
             android:layout_width="match_parent"
@@ -79,7 +79,7 @@
             android:layout_marginBottom="20dp" />
     </LinearLayout>
 
-    <!-- 输入正文的输入框 -->
+    <!-- Enter the entry field for the text -->
     <Button
         android:layout_below="@id/category"
         android:id="@+id/buttonColorPicker"
@@ -103,7 +103,7 @@
         android:minHeight="900dp"
         android:padding="10dp" />
 
-    <!-- 确定按钮和返回按钮 -->
+    <!-- Confirm and back button -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

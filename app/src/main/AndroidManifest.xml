@@ -27,6 +27,7 @@
         <activity android:name=".ui.ForgotPasswordPage"> </activity>
         <activity android:name=".ui.RegisterPage"> </activity>
         <activity android:name=".ui.EditPage"> </activity>
+        <activity android:name=".ui.Chat.ChatActivity"> </activity>
 
     </application>
 

@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.LoginPage"
-    android:background="@drawable/login_page_background"> <!-- 替换为你的背景图片 -->
+    android:background="@drawable/login_page_background"> <!-- Replace with your background image -->
 
-    <!-- 白色方框 -->
+    <!-- White box -->
     <LinearLayout
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -14,9 +14,9 @@
         android:padding="20dp"
         android:background="@drawable/rounded_rectangle"
         android:layout_centerInParent="true"
-        android:elevation="8dp"> <!-- 添加阴影效果 -->
+        android:elevation="8dp"> <!-- Add shadow effect -->
 
-        <!-- 登录文本 -->
+        <!-- Login text -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"/>
 
-        <!-- 用户名/邮箱输入框 -->
+        <!-- Username/Email input box -->
         <EditText
             android:id="@+id/etUsernameOrEmail"
             android:layout_width="match_parent"
@@ -34,7 +34,7 @@
             android:inputType="textEmailAddress"
             android:layout_marginBottom="20dp"/>
 
-        <!-- 密码输入框 -->
+        <!-- Password input box -->
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
@@ -43,21 +43,21 @@
             android:inputType="textPassword"
             android:layout_marginBottom="20dp"/>
 
-        <!-- 登录按钮 -->
+        <!-- Login button -->
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"/>
 
-        <!-- 注册按钮 -->
+        <!-- Register button -->
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Register" />
 
-        <!-- 忘记密码按钮 -->
+        <!-- Forgot password button -->
         <Button
             android:id="@+id/btnForgotPassword"
             android:layout_width="match_parent"
